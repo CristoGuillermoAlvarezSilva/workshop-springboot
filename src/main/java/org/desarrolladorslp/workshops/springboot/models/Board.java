@@ -1,5 +1,7 @@
 package org.desarrolladorslp.workshops.springboot.models;
 
+import java.util.StringJoiner;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -51,5 +53,14 @@ public class Board {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Board.class.getSimpleName() + "[", "]")
+                .add("id=" + id)
+                .add("name='" + name + "'")
+                .add("user=" + user)
+                .toString();
     }
 }
